@@ -106,6 +106,19 @@ void Graph::init(const string &graph_path) {
     if (config.operation == CLUSTER_VALIDATION) {
         jac_res = vector<unordered_map<int, double >>(n, unordered_map<int, double>{});
     }
+
+    std::ifstream inputFile("allparsed.txt");
+    std::vector<std::string> lines;
+    std::string line;
+
+    if (inputFile.is_open()) {
+        while (std::getline(inputFile, line)) {
+            lines.push_back(line);
+        }
+        inputFile.close();
+    } else {
+        std::cerr << "Unable to open file";
+    }
 }
 
 Graph::Graph(const string &graph_path) {
@@ -152,6 +165,19 @@ Graph::Graph(const string &graph_path) {
     result.m = this->m;
     cout << "init graph graph n: " << this->n << " m: " << this->m << endl;
 
+    std::ifstream inputFile("allparsed.txt");
+    std::vector<std::string> lines;
+    std::string line;
+
+    if (inputFile.is_open()) {
+        while (std::getline(inputFile, line)) {
+            lines.push_back(line);
+        }
+        inputFile.close();
+    } else {
+        std::cerr << "Unable to open file";
+    }
+    
     clusterID = vector<int>(n, -1);
     is_core = vector<int>(n, -1);
     similarity = vector<unordered_map<int, bool >>(n, unordered_map<int, bool>{});
@@ -628,4 +654,41 @@ void Graph::convert_to_undirected_graph(string graph_path) {
     }
     fclose(fin);
     fclose(fout);
+}
+
+std::set<std::string> tokenize(const std::string& str) {
+    std::set<std::string> tokens;
+    std::istringstream stream(str);
+    std::string word;
+    while (stream >> word) {
+        tokens.insert(word);
+    }
+    return tokens;
+}
+
+bool calculateSharedPercentage(const std::set<std::string>& set1, const std::set<std::string>& set2) {
+    std::set<std::string> intersection;
+    std::set_intersection(set1.begin(), set1.end(), set2.begin(), set2.end(),
+                          std::inserter(intersection, intersection.begin()));
+    
+    if (set1.empty() || set2.empty()) {
+        return 0;
+    }
+
+    double sharedCount = static_cast<double>(intersection.size());
+    double unionCount = static_cast<double>(set1.size() + set2.size() - intersection.size());
+    double percentagesim = (sharedCount / unionCount) * 100.0;
+    if (percentagesim >= 30.0) {
+        return 1;
+            } else {
+        return 0;
+    }
+}
+
+bool semantic_similarity_check(int u, int v)
+ if (lines.size() >= 2) {
+        std::set<std::string> set1 = tokenize(lines[u]);
+        std::set<std::string> set2 = tokenize(lines[v]);
+
+        return calculateSharedPercentage(set1, set2);
 }
