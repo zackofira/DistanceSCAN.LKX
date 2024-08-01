@@ -241,9 +241,6 @@ void Graph::set_path_weight(int u, int v, double w) {
 
 
 int Graph::get_similairty(int u, int v) {
-    if (semantic_similarity_check(u, v) != 1) {
-        return -1
-            }
     if (u > v) swap(u, v);
     if (similarity[u].find(v) == similarity[u].end()) {
         return -1;
