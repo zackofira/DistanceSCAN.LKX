@@ -193,7 +193,6 @@ bool ClusterAlgos::test_edge_pscan(int u, int v) {
 
 bool ClusterAlgos::test_edge(int u, int v, double dis, vector<int> &parent, vector<int> &rank, bool save) {
     if (u == v)return false;
-    if (graph.semantic_similarity_check(u, v) != 1)return false
     int is_sim = graph.get_similairty(u, v), is_edge = false;
     if (is_sim != -1) return is_sim == 1;
     is_sim = sketches.jaccard_with_sketches(u, v, dis);
