@@ -107,7 +107,7 @@ void Graph::init(const string &graph_path) {
         jac_res = vector<unordered_map<int, double >>(n, unordered_map<int, double>{});
     }
 
-    std::ifstream inputFile("allparsed.txt");
+    std::ifstream inputFile("titles.txt");
     std::vector<std::string> lines;
     std::string line;
 
