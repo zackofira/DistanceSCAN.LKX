@@ -114,7 +114,6 @@ void Graph::init(const string &graph_path) {
     if (inputFile.is_open()) {
         while (std::getline(inputFile, line)) {
             lines.push_back(line);
-            std::cout << lines[0];
         }
         inputFile.close();
     } else {
@@ -175,7 +174,6 @@ Graph::Graph(const string &graph_path) {
     if (inputFile.is_open()) {
         while (std::getline(inputFile, line)) {
             lines.push_back(line);
-            std::cout << lines[0];
         }
         inputFile.close();
     } else {
