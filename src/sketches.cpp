@@ -376,11 +376,11 @@ bool SKETCHES::calculateSharedPercentage(const std::set<std::string>& set1, cons
 }
 
 bool SKETCHES::semantic_similarity_check(int u, int v) {
-        std::cout << graph.lines[u];
-        std::cout << graph.lines[v];
     
         std::set<std::string> set1 = tokenize(graph.lines[u]);
         std::set<std::string> set2 = tokenize(graph.lines[v]);
- 
+
+        std::cout << "a";
+        std::cout << calculateSharedPercentage(set1, set2);
         return calculateSharedPercentage(set1, set2);
 }
