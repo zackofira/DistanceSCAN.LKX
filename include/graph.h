@@ -23,6 +23,9 @@ public:
     vector<vector<int>> adj_list;
     vector<unordered_map<int, double>> edge_weight;
 
+    vector<std::string> lines;
+    string line;
+
     vector<int> clusterID;//-1 not classified, -2 hub, -3 outlier.
     vector<int> is_core;//-1 init, 0 non-member, 1 core, 2 hub, 3 outlier.
 
