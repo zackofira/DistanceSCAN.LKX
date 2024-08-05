@@ -173,8 +173,9 @@ Graph::Graph(const string &graph_path) {
     lines = vector<string>(n, line);
 
     if (inputFile.is_open()) {
+        std::cout << "a";
         while (std::getline(inputFile, line)) {
-            std::cout << line;
+            std::cout << "b";
             lines.push_back(line);
         }
         inputFile.close();
