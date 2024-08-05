@@ -106,7 +106,22 @@ void Graph::init(const string &graph_path) {
     if (config.operation == CLUSTER_VALIDATION) {
         jac_res = vector<unordered_map<int, double >>(n, unordered_map<int, double>{});
     }
+
+    std::ifstream inputFile("titles.txt");
+    std::vector<std::string> lines;
+    std::string line;
+
+    if (inputFile.is_open()) {
+        while (std::getline(inputFile, line)) {
+            lines.push_back(line);
+        }
+        inputFile.close();
+    } else {
+        std::cerr << "Unable to open file";
+    }
 }
+
+
 
 Graph::Graph(const string &graph_path) {
     Timer timer(READ_GRAPH_TIME);
@@ -151,6 +166,19 @@ Graph::Graph(const string &graph_path) {
     result.n = this->n;
     result.m = this->m;
     cout << "init graph graph n: " << this->n << " m: " << this->m << endl;
+
+        std::ifstream inputFile("titles.txt");
+    std::vector<std::string> lines;
+    std::string line;
+
+    if (inputFile.is_open()) {
+        while (std::getline(inputFile, line)) {
+            lines.push_back(line);
+        }
+        inputFile.close();
+    } else {
+        std::cerr << "Unable to open file";
+    }
 
     clusterID = vector<int>(n, -1);
     is_core = vector<int>(n, -1);
