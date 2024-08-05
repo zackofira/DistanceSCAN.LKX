@@ -109,7 +109,7 @@ void Graph::init(const string &graph_path) {
 
     std::ifstream inputFile("titles.txt");
     std::string line;
-    lines = vector<string>(line);
+    lines = vector<string>(n, string);
     
 
     if (inputFile.is_open()) {
@@ -170,7 +170,7 @@ Graph::Graph(const string &graph_path) {
 
     std::ifstream inputFile("titles.txt");
     std::string line;
-    lines = vector<string>(line);
+    lines = vector<string>(n, string);
 
     if (inputFile.is_open()) {
         while (std::getline(inputFile, line)) {
