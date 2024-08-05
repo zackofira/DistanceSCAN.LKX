@@ -107,7 +107,7 @@ void Graph::init(const string &graph_path) {
         jac_res = vector<unordered_map<int, double >>(n, unordered_map<int, double>{});
     }
 
-    std::ifstream inputFile("titles.txt");
+    std::ifstream inputFile(data_folder + "titles.txt");
     std::string line;
     lines = vector<string>(n, line);
     
@@ -168,7 +168,7 @@ Graph::Graph(const string &graph_path) {
     result.m = this->m;
     cout << "init graph graph n: " << this->n << " m: " << this->m << endl;
 
-    std::ifstream inputFile("titles.txt");
+    std::ifstream inputFile(data_folder + "titles.txt");
     std::string line;
     lines = vector<string>(n, line);
 
