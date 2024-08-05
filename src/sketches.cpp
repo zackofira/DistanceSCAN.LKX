@@ -382,5 +382,7 @@ bool SKETCHES::semantic_similarity_check(int u, int v) {
 
         std::cout << u;
         std::cout << v;
+        std::cout << graph.lines[5];
+    
         return calculateSharedPercentage(set1, set2);
 }
