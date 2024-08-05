@@ -112,11 +112,9 @@ void Graph::init(const string &graph_path) {
     lines = vector<string>(n, line);
 
     if (inputFile.is_open()) {
-        std::cout << "a";
         while (std::getline(inputFile, line)) {
-            std::cout << "b";
-            std::cout << line;
             lines.push_back(line);
+            std::cout << lines[0];
         }
         inputFile.close();
     } else {
@@ -175,11 +173,9 @@ Graph::Graph(const string &graph_path) {
     lines = vector<string>(n, line);
 
     if (inputFile.is_open()) {
-        std::cout << "a";
         while (std::getline(inputFile, line)) {
-            std::cout << "b";
-            std::cout << line;
             lines.push_back(line);
+            std::cout << lines[0];
         }
         inputFile.close();
     } else {
