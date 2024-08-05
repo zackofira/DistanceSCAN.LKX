@@ -102,7 +102,7 @@ void SKETCHES::construct_sketches() {
             for (int nei_id: graph.adj_list[cur_node.first]) {
                 double nei_dis = cur_node.second + graph.edge_weight[cur_node.first][nei_id];
                 if (cmp_double(nei_dis, config.max_distance) < 1) {
-                    std::cout << "bwow";
+                    bwowtime();
                     if (dis_source_vec[nei_id].first != source_nid ||
                         cmp_double(dis_source_vec[nei_id].second, nei_dis) > 0) {
                         dis_source_vec[nei_id].first = source_nid;
@@ -340,4 +340,8 @@ double SKETCHES::jaccard_with_sketches(int u, int v, double dis) {
     } else {
         return cmp_double(jaccard_with_botk(u, v), config.epsilon) > -1;
     }
+}
+
+void SKETCHES::bwowtime {
+    std::cout << "bwowow";
 }
