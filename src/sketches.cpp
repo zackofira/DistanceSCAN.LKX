@@ -342,6 +342,6 @@ double SKETCHES::jaccard_with_sketches(int u, int v, double dis) {
     }
 }
 
-void SKETCHES::bwowtime {
+void SKETCHES::bwowtime() {
     std::cout << "bwowow";
 }
