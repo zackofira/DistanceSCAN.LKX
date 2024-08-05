@@ -174,6 +174,7 @@ Graph::Graph(const string &graph_path) {
 
     if (inputFile.is_open()) {
         while (std::getline(inputFile, line)) {
+            std::cout << line;
             lines.push_back(line);
         }
         inputFile.close();
