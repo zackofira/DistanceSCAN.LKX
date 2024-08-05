@@ -11,6 +11,7 @@ private:
     vector<unordered_map<int, double>> jac_res;
 
 public:
+    int funny;
     int n;
     long long m;
 
