@@ -119,6 +119,11 @@ void Graph::init(const string &graph_path) {
     } else {
         std::cerr << "Unable to open file";
     }
+
+    std::cout << "Lines in vector:" << std::endl;
+    for (const auto& l : lines) {
+        std::cout << l << std::endl;
+    }
 }
 
 
@@ -178,6 +183,11 @@ Graph::Graph(const string &graph_path) {
         inputFile.close();
     } else {
         std::cerr << "Unable to open file";
+    }
+
+    std::cout << "Lines in vector:" << std::endl;
+    for (const auto& l : lines) {
+        std::cout << l << std::endl;
     }
 
     clusterID = vector<int>(n, -1);
