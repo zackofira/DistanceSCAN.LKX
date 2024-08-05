@@ -108,7 +108,7 @@ void Graph::init(const string &graph_path) {
     }
 
     std::ifstream inputFile("titles.txt");
-    lines = vector<string>(string);
+    lines = vector<string>;
     std::string line;
 
     if (inputFile.is_open()) {
