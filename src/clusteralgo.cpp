@@ -121,7 +121,7 @@ void ClusterAlgos::assign_noncore_hubs_outliers() {
                         swap(graph.adj_list[i], graph.d_neighbors[i]);
                         swap(graph.adj_list[nei], graph.d_neighbors[nei]);
                     }
-                    if (cmp_double(nei_dis.second, config.epsilon) > -1 && semantic_similarity_check(i, nei)) {
+                    if (cmp_double(nei_dis.second, config.epsilon) > -1) {
                         in_cluster = true;
                         non_core_cluster_members[graph.clusterID[nei]].insert(i);
                     } else if (!in_cluster) {
