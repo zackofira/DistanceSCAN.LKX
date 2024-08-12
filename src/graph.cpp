@@ -109,11 +109,11 @@ void Graph::init(const string &graph_path) {
 
     std::ifstream inputFile(data_folder + "titles.txt");
 
-    lines = vector<string>(n, line);
+    titleVector = vector<string>(n, titleCurrent);
 
     if (inputFile.is_open()) {
-        while (std::getline(inputFile, line)) {
-            lines.push_back(line);
+        while (std::getline(inputFile, titleCurrent)) {
+            lines.push_back(titleCurrent);
         }
         inputFile.close();
     } else {
@@ -121,7 +121,7 @@ void Graph::init(const string &graph_path) {
     }
 
     std::cout << "Lines in vector:" << std::endl;
-    for (const auto& l : lines) {
+    for (const auto& l : titleVector) {
         std::cout << l << std::endl;
     }
 }
@@ -174,11 +174,11 @@ Graph::Graph(const string &graph_path) {
 
     std::ifstream inputFile(data_folder + "titles.txt");
   
-    lines = vector<string>(n, line);
+    titleVector = vector<string>(n, titleCurrent);
 
     if (inputFile.is_open()) {
-        while (std::getline(inputFile, line)) {
-            lines.push_back(line);
+        while (std::getline(inputFile, titleCurrent)) {
+            lines.push_back(titleCurrent);
         }
         inputFile.close();
     } else {
@@ -186,7 +186,7 @@ Graph::Graph(const string &graph_path) {
     }
 
     std::cout << "Lines in vector:" << std::endl;
-    for (const auto& l : lines) {
+    for (const auto& l : titleVector) {
         std::cout << l << std::endl;
     }
 
