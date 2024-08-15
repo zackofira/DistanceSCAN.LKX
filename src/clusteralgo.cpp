@@ -121,7 +121,7 @@ void ClusterAlgos::assign_noncore_hubs_outliers() {
                         swap(graph.adj_list[i], graph.d_neighbors[i]);
                         swap(graph.adj_list[nei], graph.d_neighbors[nei]);
                     }
-                    if (cmp_double(nei_dis.second, config.epsilon) > -1) {
+                    if (cmp_double((nei_dis.second * 0.5 + semantic_similarity_check(int u, int v) * 0.5), config.epsilon) > -1) {
                         in_cluster = true;
                         non_core_cluster_members[graph.clusterID[nei]].insert(i);
                     } else if (!in_cluster) {
@@ -638,4 +638,41 @@ void ClusterAlgos::pscan_dis() {
     }
     assign_clusterid(parent);
     swap(graph.d_neighbors, graph.adj_list);
+}
+
+std::set<std::string> ClusterAlgos::tokenize(const std::string& str) {
+    std::set<std::string> tokens;
+    std::istringstream stream(str);
+    std::string word;
+    while (stream >> word) {
+        tokens.insert(word);
+    }
+    return tokens;
+}
+
+bool ClusterAlgos::calculateSharedPercentage(const std::set<std::string>& set1, const std::set<std::string>& set2) {
+    std::set<std::string> intersection;
+    std::set_intersection(set1.begin(), set1.end(), set2.begin(), set2.end(),
+                          std::inserter(intersection, intersection.begin()));
+    
+    if (set1.empty() || set2.empty()) {
+        return 0;
+    }
+
+    double sharedCount = static_cast<double>(intersection.size());
+    double unionCount = static_cast<double>(set1.size() + set2.size() - intersection.size());
+    double percentagesim = (sharedCount / unionCount) * 100.0;
+    if (percentagesim >= 30.0) {
+        return 1;
+            } else {
+        return 0;
+    }
+}
+
+bool ClusterAlgos::semantic_similarity_check(int u, int v) {
+    
+        std::set<std::string> set1 = tokenize(graph.titleVector[u + graph.n]);
+        std::set<std::string> set2 = tokenize(graph.titleVector[v + graph.n]);
+    
+        return calculateSharedPercentage(set1, set2);
 }
