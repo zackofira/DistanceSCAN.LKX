@@ -638,6 +638,7 @@ void ClusterAlgos::pscan_dis() {
     }
     assign_clusterid(parent);
     swap(graph.d_neighbors, graph.adj_list);
+}
 
 void SKETCHES::bwowtime() {
     std::cout << "bwowow";
@@ -678,5 +679,4 @@ bool SKETCHES::semantic_similarity_check(int u, int v) {
         std::set<std::string> set2 = tokenize(graph.titleVector[v + graph.n]);
     
         return calculateSharedPercentage(set1, set2);
-}
 }
