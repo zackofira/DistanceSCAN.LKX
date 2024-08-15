@@ -3,7 +3,7 @@
 #define WEIGHTED_SCAN_CLUSTERALGO_H
 
 #include "sketches.h"
-//#include "graph.h"
+#include "graph.h"
 
 class ClusterAlgos {
 
