@@ -444,7 +444,7 @@ void ClusterAlgos::traverse_single_node_dijkstra(int u, vector<idpair> &dis_sour
         for (auto item: graph.edge_weight[cur_node.first]) {
             int nei_id = item.first;
             double nei_dis = cur_node.second + graph.edge_weight[cur_node.first][nei_id];
-            if (cmp_double(nei_dis, config.distance) < 1 && semantic_similarity_check(u, nei_id)) {
+            if (cmp_double(nei_dis, config.distance) < 1 && semantic_similarity_checkz(u, nei_id)) {
 
                 if (dis_source_vec[nei_id].first != u ||
                     cmp_double(dis_source_vec[nei_id].second, nei_dis) > 0) {
