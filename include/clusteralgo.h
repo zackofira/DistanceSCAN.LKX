@@ -33,7 +33,18 @@ public:
         }
         assign_noncore_hubs_outliers();
     }
-    vector<vector<int>> get_clusters(){return clusters;}
+    vector<vector<int>> get_clusters(){return clusters;
+    
+    void assign_noncore_hubs_outliers();
+
+    void bwowtime();
+
+    std::set<std::string> tokenize(const std::string& str);
+
+    bool calculateSharedPercentage(const std::set<std::string>& set1, const std::set<std::string>& set2);
+
+    bool semantic_similarity_check(int u, int v);
+}
 
 private:
 
@@ -68,16 +79,6 @@ private:
     void refine_clusters(vector<int> & parent, vector<int> & rank);
 
     void pruned_scan();
-
-    void assign_noncore_hubs_outliers();
-
-    void bwowtime();
-
-    std::set<std::string> tokenize(const std::string& str);
-
-    bool calculateSharedPercentage(const std::set<std::string>& set1, const std::set<std::string>& set2);
-
-    bool semantic_similarity_check(int u, int v);
 
 };
 
