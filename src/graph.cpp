@@ -108,6 +108,19 @@ void Graph::init(const string &graph_path) {
     }
 }
 
+    std::ifstream inputFile(data_folder + "titles.txt");
+
+    titleVector = vector<string>(n, titleCurrent);
+
+    if (inputFile.is_open()) {
+        while (std::getline(inputFile, titleCurrent)) {
+            titleVector.push_back(titleCurrent);
+        }
+        inputFile.close();
+    } else {
+        std::cerr << "Unable to open file";
+    }
+
 Graph::Graph(const string &graph_path) {
     Timer timer(READ_GRAPH_TIME);
     INFO("Reading graph ...");
