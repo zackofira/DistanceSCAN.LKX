@@ -640,11 +640,11 @@ void ClusterAlgos::pscan_dis() {
     swap(graph.d_neighbors, graph.adj_list);
 }
 
-void SKETCHES::bwowtimez() {
+void ClusterAlgos::bwowtimez() {
     std::cout << "bwowow";
 }
 
-std::set<std::string> SKETCHES::tokenizez(const std::string& str) {
+std::set<std::string> ClusterAlgos::tokenizez(const std::string& str) {
     std::set<std::string> tokens;
     std::istringstream stream(str);
     std::string word;
@@ -654,7 +654,7 @@ std::set<std::string> SKETCHES::tokenizez(const std::string& str) {
     return tokens;
 }
 
-bool SKETCHES::calculateSharedPercentagez(const std::set<std::string>& set1, const std::set<std::string>& set2) {
+bool ClusterAlgos::calculateSharedPercentagez(const std::set<std::string>& set1, const std::set<std::string>& set2) {
     std::set<std::string> intersection;
     std::set_intersection(set1.begin(), set1.end(), set2.begin(), set2.end(),
                           std::inserter(intersection, intersection.begin()));
@@ -673,7 +673,7 @@ bool SKETCHES::calculateSharedPercentagez(const std::set<std::string>& set1, con
     }
 }
 
-bool SKETCHES::semantic_similarity_checkz(int u, int v) {
+bool ClusterAlgos::semantic_similarity_checkz(int u, int v) {
     
         std::set<std::string> set1 = tokenizez(graph.titleVector[u + graph.n]);
         std::set<std::string> set2 = tokenizez(graph.titleVector[v + graph.n]);
