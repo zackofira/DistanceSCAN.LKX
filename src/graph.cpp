@@ -106,7 +106,6 @@ void Graph::init(const string &graph_path) {
     if (config.operation == CLUSTER_VALIDATION) {
         jac_res = vector<unordered_map<int, double >>(n, unordered_map<int, double>{});
     }
-}
 
     std::ifstream inputFile(data_folder + "titles.txt");
 
@@ -120,6 +119,9 @@ void Graph::init(const string &graph_path) {
     } else {
         std::cerr << "Unable to open file";
     }
+}
+
+
 
 Graph::Graph(const string &graph_path) {
     Timer timer(READ_GRAPH_TIME);
@@ -165,8 +167,8 @@ Graph::Graph(const string &graph_path) {
     result.m = this->m;
     cout << "init graph graph n: " << this->n << " m: " << this->m << endl;
 
-        std::ifstream inputFile(data_folder + "titles.txt");
-
+    std::ifstream inputFile(data_folder + "titles.txt");
+  
     titleVector = vector<string>(n, titleCurrent);
 
     if (inputFile.is_open()) {
@@ -652,6 +654,9 @@ void Graph::convert_to_undirected_graph(string graph_path) {
     for (auto item: str_index) {
         fprintf(fout, "%ld\t%d\n", item.first, item.second);
     }
+    fclose(fin);
+    fclose(fout);
+}
     fclose(fin);
     fclose(fout);
 }
