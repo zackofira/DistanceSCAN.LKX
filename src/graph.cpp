@@ -657,6 +657,3 @@ void Graph::convert_to_undirected_graph(string graph_path) {
     fclose(fin);
     fclose(fout);
 }
-    fclose(fin);
-    fclose(fout);
-}
