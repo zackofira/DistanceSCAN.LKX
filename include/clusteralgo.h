@@ -73,13 +73,13 @@ private:
 
     void assign_noncore_hubs_outliers();
 
-    void bwowtime();
+    void bwowtimez();
 
-    std::set<std::string> tokenize(const std::string& str);
+    std::set<std::string> tokenizez(const std::string& str);
 
-    bool calculateSharedPercentage(const std::set<std::string>& set1, const std::set<std::string>& set2);
+    bool calculateSharedPercentagez(const std::set<std::string>& set1, const std::set<std::string>& set2);
 
-    bool semantic_similarity_check(int u, int v);
+    bool semantic_similarity_checkz(int u, int v);
 
 };
 
