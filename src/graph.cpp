@@ -113,7 +113,7 @@ void Graph::init(const string &graph_path) {
 
     if (inputFile.is_open()) {
         while (std::getline(inputFile, titleCurrent)) {
-            lines.push_back(titleCurrent);
+            titleVector.push_back(titleCurrent);
         }
         inputFile.close();
     } else {
@@ -178,7 +178,7 @@ Graph::Graph(const string &graph_path) {
 
     if (inputFile.is_open()) {
         while (std::getline(inputFile, titleCurrent)) {
-            lines.push_back(titleCurrent);
+            titleVector.push_back(titleCurrent);
         }
         inputFile.close();
     } else {
