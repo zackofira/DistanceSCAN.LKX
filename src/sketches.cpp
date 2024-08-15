@@ -102,7 +102,6 @@ void SKETCHES::construct_sketches() {
             for (int nei_id: graph.adj_list[cur_node.first]) {
                 double nei_dis = cur_node.second + graph.edge_weight[cur_node.first][nei_id];
                 if (cmp_double(nei_dis, config.max_distance) < 1 && semantic_similarity_check(nei_id, cur_node.first)) {
-                    bwowtime();
                     if (dis_source_vec[nei_id].first != source_nid ||
                         cmp_double(dis_source_vec[nei_id].second, nei_dis) > 0) {
                         dis_source_vec[nei_id].first = source_nid;
