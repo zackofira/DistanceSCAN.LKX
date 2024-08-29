@@ -1,0 +1,3 @@
+/data/home/zkofira/temp-0618/truescan/CMakeFiles/Distance_SCAN_SIGMOD.dir
+/data/home/zkofira/temp-0618/truescan/CMakeFiles/edit_cache.dir
+/data/home/zkofira/temp-0618/truescan/CMakeFiles/rebuild_cache.dir

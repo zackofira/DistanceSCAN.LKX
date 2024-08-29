@@ -1,0 +1,2 @@
+customtest2	algo:distancescan	epsilon: 0.200000	mu: 5	distance: 0.500000	max_distance: 1.400000	hash_k: 1024	whole_time_usage: 0.00s	total_mem_usage: 5.18MB	total_time_usage: 0.00s	sketches: 0.002754	construct_sketch_time: 0.002081	compute_all_botk_time: 0.000032	save_all_botk_time: 0.000112	update_histogram_time: 0.000113	
+
