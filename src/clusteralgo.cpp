@@ -403,6 +403,7 @@ void ClusterAlgos::traverse_single_node_botk_sort(int u, vector<int> &parent, ve
     Timer timer(TRAVERSE_NODES_TIME_BOTK_SORT);
     vector<int> bin_true_size = vector<int>(node_buckets.size(), 0);
     for (int i = 0; i < sketches.bot_k_dis[u].size(); ++i) {
+        Std::cout << “i=“ << i << ‘\n’;
         int bin_id;
         if (cmp_double(sketches.bot_k_dis[u][i], 0) == 0) {
             bin_id = 0;
