@@ -650,7 +650,7 @@ std::set<std::string> ClusterAlgos::tokenize(const std::string& str) {
     return tokens;
 }
 
-bool ClusterAlgos::calculateSharedPercentage(const std::set<std::string>& set1, const std::set<std::string>& set2) {
+/* bool ClusterAlgos::calculateSharedPercentage(const std::set<std::string>& set1, const std::set<std::string>& set2) {
     std::set<std::string> intersection;
     std::set_intersection(set1.begin(), set1.end(), set2.begin(), set2.end(),
                           std::inserter(intersection, intersection.begin()));
@@ -667,9 +667,24 @@ bool ClusterAlgos::calculateSharedPercentage(const std::set<std::string>& set1, 
             } else {
         return 0;
     }
+} */
+
+double ClusterAlgos::calculateSharedPercentage(const std::set<std::string>& set1, const std::set<std::string>& set2) {
+    std::set<std::string> intersection;
+    std::set_intersection(set1.begin(), set1.end(), set2.begin(), set2.end(),
+                          std::inserter(intersection, intersection.begin()));
+    
+    if (set1.empty() || set2.empty()) {
+        return 0;
+    }
+
+    double sharedCount = static_cast<double>(intersection.size());
+    double unionCount = static_cast<double>(set1.size() + set2.size() - intersection.size());
+    return (sharedCount / unionCount);
+    
 }
 
-bool ClusterAlgos::semantic_similarity_check(int u, int v) {
+double ClusterAlgos::semantic_similarity_check(int u, int v) {
     
         std::set<std::string> set1 = tokenize(graph.titleVector[u + graph.n]);
         std::set<std::string> set2 = tokenize(graph.titleVector[v + graph.n]);
