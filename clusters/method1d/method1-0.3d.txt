@@ -1,0 +1,14 @@
+Breakpoint 1 at 0x18368: file /data/home/zkofira/temp-0618/datagrab/./include/query.h, line 286.
+Starting program: /data/home/zkofira/temp-0618/datagrab/Distance_SCAN_SIGMOD --operation query --dataset dblpsmall --algo distancescan -k 16 -u 3 -e 0.4 -d 0.3 -m 1.4
+
+This GDB supports auto-downloading debuginfo from the following URLs:
+  <https://debuginfod.ubuntu.com>
+Debuginfod has been disabled.
+To make this setting permanent, add 'set debuginfod enabled off' to .gdbinit.
+warning: could not find '.gnu_debugaltlink' file for /lib/x86_64-linux-gnu/libboost_serialization.so.1.83.0
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+
+Breakpoint 1, query () at /data/home/zkofira/temp-0618/datagrab/./include/query.h:286
+286	    serialize_clusters(cluster_result);
+$1 = std::vector of length 28, capacity 28 = {std::vector of length 1, capacity 1 = {98807}, std::vector of length 1, capacity 1 = {96494}, std::vector of length 1, capacity 1 = {84290}, std::vector of length 1, capacity 1 = {73123}, std::vector of length 1, capacity 1 = {71734}, std::vector of length 1, capacity 1 = {72901}, std::vector of length 1, capacity 1 = {65332}, std::vector of length 1, capacity 1 = {68264}, std::vector of length 1, capacity 1 = {26707}, std::vector of length 1, capacity 1 = {15696}, std::vector of length 2, capacity 2 = {26130, 47277}, std::vector of length 1, capacity 1 = {46159}, std::vector of length 2, capacity 2 = {32703, 92444}, std::vector of length 3, capacity 3 = {64988, 68677, 69672}, std::vector of length 1, capacity 1 = {34196}, std::vector of length 1, capacity 1 = {90617}, std::vector of length 1, capacity 1 = {44594}, std::vector of length 1, capacity 1 = {42871}, std::vector of length 1, capacity 1 = {44930}, std::vector of length 1, capacity 1 = {70324}, std::vector of length 1, capacity 1 = {60725}, std::vector of length 1, capacity 1 = {48007}, std::vector of length 1, capacity 1 = {96699}, std::vector of length 1, capacity 1 = {71440}, std::vector of length 1, capacity 1 = {70309}, std::vector of length 1, capacity 1 = {57317}, std::vector of length 1, capacity 1 = {99762}, std::vector of length 1, capacity 1 = {63454}}
