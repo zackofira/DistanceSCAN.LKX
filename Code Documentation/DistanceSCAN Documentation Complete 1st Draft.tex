@@ -1,0 +1,91 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{graphicx, float}
+\graphicspath{{C:/users/neond/pictures/screenshots}}
+
+\title{DistanceSCAN Setup and Usage for Dr. Wang's COMP 398 Research}
+\author{Zach Kofira}
+\date{October 24, 2024}
+
+\begin{document}
+
+\maketitle
+
+\section{Intro}
+
+The DistanceSCAN algorithm is an improvement on SCAN to consider weigh- ted graphs.  I'm writing this to help but also to practice using LaTeX for the paper that I'm going to be writing on this
+
+\subsection{Wierd things to know}
+There's some wierd quirks with this program, like sometimes one of the processes will take like 20 seconds when it isnt supposed to, or the code will start producing random negative numbers.  If you find something weird happening, you can email me (zkofira@luc.edu) and I will try to see if I've encountered something similar
+
+\section{Setup}
+
+Starting with the obvious, to download the program via the linux terminal you are going to use the "git clone" command.  This takes in two parameters, being a github code link followed by a folder name to create the clone inside of.  To clone to an easy to type name like testScan, type "git clone [LINK] testScan"  Your machine will then download the repository into the folder (If you dont name it, it will be the name of the repository).  Next, navigate into this folder and then paste the command: "cmake -DCMAKE\_BUILD\_TYPE=DEBUG ."  (The . at the end is necessary).  This will allow you to use debugging tools, such as GDB, later.  Finally, just type "make" and the program will compile.
+
+\subsection{Branches}
+
+If you have already made modifications to the code in a separate branch,  you will need to switch to that branch before running the cmake or make commands.  To do this, first navigate to the folder with the program.  You can then type "git branch" to see what branch you are currently on, as well as all other available branches.  To switch to one, just type "git switch \_\_\_\_", where the \_\_\_\_ is the name of your desired branch.
+
+\section{Preparing a Dataset}
+
+The first thing to do when preparing a dataset for this program is to make a folder to store your data in.  When you run DistanceSCAN, it will look for a folder called "kcore\_dataset" in the same filepath as itself.  For example, if you DistanceSCAN filepath is
+
+\noindent"home/COMP398/testSCAN," the code will search for
+
+\noindent"home/COMP398/kcore\_dataset"  Make sure to create this folder.  Then, within this folder, make another folder to download and store your first dataset in.
+
+\subsection{Downloading}
+
+To download a dataset to the linux terminal, we use the "wget" command.  A good place to get test datasets from is Stanford's SNAP datasets.  The link for that is here:
+
+\noindent https://snap.stanford.edu/data/index.html .   In particular, the first datasets that I used for a smooth introduction were the Gowalla and Brightkite datasets.  Whichever set you decide to use, find the link to download its edges, then copy it.  Then, just type "wget [LINK]" into the terminal to download the data- set.
+
+\subsection{File Formatting}
+
+Most likely your file will be zipped.  To unzip, run "gunzip -r [FILE]".  Next, you need to rename the file to "undirect\_graph.txt"  This can be done with "cp [FILE] undirect\_graph.txt".  You can then get rid of the zip file with "rm [FILE]".  Next, you need to make an attribute file.  Do this with "touch attribute.txt".
+This file will contain the number of nodes, number of edges, and whether or not the edges are weighted (saying no to weighted has always made mine crash, YMMV).    
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=4.5in]{Gowalla Screenshot}
+	\caption{Attribute data on SNAP}
+	\label{fig:my_label}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=2in]{Attribute.txt Example}
+	\caption{Attribute.txt Example}
+	\label{fig:my_label}
+\end{figure}
+
+\noindent n is number of nodes, m is number of edges, and for weighted, 0 is false and 1 is true.
+
+\section{Running the Program}
+
+Once everything is set up, running the program is simple.  There are three commands to run, though.  First is convert graph, which needs no parameters.  Just type "./Distance\_SCAN\_SIGMOD --operation convert\_graph --dataset [DATASET] --algo distancescan", replacing [DATASET] with the name of the desired directory within kcore\_dataset.
+
+Next is construct sketches, this one needs a 'k' parameter and a 'd' parameter.  You can run this one with: "./Distance\_SCAN\_SIGMOD --operation construct\_sketches --dataset [DATASET] --algo distancescan -k \# -d \#".  Each '\#' character should be replaced with a number, where it will affect the parameter to its left.  So "-k 12 -d 0.5" with make k = 12 and d = 0.5.
+
+The final thing to run is the actual clustering query.  Here, type "./Distance\_SCAN\_SIGMOD --operation query --dataset [DATASET] --algo distancescan -k \# -u \# -e \#  -d \# -m \#"  If you want to change the value of d or k, it is a good idea to rerun construct\_sketches first to match the parameters, but other than that you can just continue to run query once the other two have been run.
+
+\subsection{Parameters}
+Here is a brief overview of the parameters for the program, ripped directly from the thu-west Github README file:
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=2.4in]{Screenshot 2024-10-31 153012}
+	\caption{Parameters}
+	\label{fig:my_label}
+\end{figure}
+
+
+\section{Viewing the Data}
+
+The easiest way to view the data is by using gdb, this is the other reason besides general debuging for running cmake with the debugging part.  To access gdb, go to where you would usually write a ./Distance\_SCAN\_SIGMOD command, but type "gdb ./Distance\_SCAN\_SIGMOD" instead.  Once you enter gdb, I reccomend two settings to make the data easier to read.  "set pagination off" will print all requested data at once, isntead of breaking it up into multiple pages, and "set print elements 0" will prevent it from cutting off data with an ellipsis, preventing access to all the data.
+
+After that, you will want to set a break point for where ever the data is that you want to access. For example, the clustering results are at line 286 of query.h, so the command will be "break query.h:286" Other important things are hubs and outliers, which can be found at like 162 of clusteralgo.cpp.  To run in gdb, you can subsitute "./Distance\_SCAN\_SIGMOD" with just "run", but leave all other parameters the same.  The code will run to the break point, where you can then type "p [VARIABLE]" to print it.  For example, if you broke at the clustering results, you would type "p cluster\_result", as cluster\_result is the variable in the code that holds the data.  For outliers it is "outlier" and for hub it is just "hub".
+
+
+\end{document}
