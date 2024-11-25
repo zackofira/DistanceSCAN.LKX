@@ -1,0 +1,14 @@
+Breakpoint 1 at 0x183a8: file /data/home/zkofira/temp-0618/124fix/./include/query.h, line 286.
+Starting program: /data/home/zkofira/temp-0618/124fix/Distance_SCAN_SIGMOD --operation query --dataset dblpsmall --algo distancescan -k 16 -u 5 -e 0.35 -d 1.0 -m 1.4
+
+This GDB supports auto-downloading debuginfo from the following URLs:
+  <https://debuginfod.ubuntu.com>
+Debuginfod has been disabled.
+To make this setting permanent, add 'set debuginfod enabled off' to .gdbinit.
+warning: could not find '.gnu_debugaltlink' file for /lib/x86_64-linux-gnu/libboost_serialization.so.1.83.0
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+
+Breakpoint 1, query () at /data/home/zkofira/temp-0618/124fix/./include/query.h:286
+286	    serialize_clusters(cluster_result);
+$1 = std::vector of length 24, capacity 24 = {std::vector of length 1, capacity 1 = {98906}, std::vector of length 1, capacity 1 = {94977}, std::vector of length 1, capacity 1 = {97999}, std::vector of length 1, capacity 1 = {94693}, std::vector of length 3, capacity 3 = {92618, 27149, 97043}, std::vector of length 1, capacity 1 = {81646}, std::vector of length 1, capacity 1 = {74201}, std::vector of length 1, capacity 1 = {72901}, std::vector of length 1, capacity 1 = {990}, std::vector of length 1, capacity 1 = {18007}, std::vector of length 2, capacity 2 = {26715, 23724}, std::vector of length 1, capacity 1 = {27882}, std::vector of length 1, capacity 1 = {40881}, std::vector of length 2, capacity 2 = {44930, 18186}, std::vector of length 1, capacity 1 = {41943}, std::vector of length 1, capacity 1 = {34917}, std::vector of length 3, capacity 3 = {43885, 52694, 40353}, std::vector of length 1, capacity 1 = {95863}, std::vector of length 3, capacity 3 = {42648, 78692, 83136}, std::vector of length 1, capacity 1 = {98728}, std::vector of length 1, capacity 1 = {34261}, std::vector of length 1, capacity 1 = {48007}, std::vector of length 1, capacity 1 = {73123}, std::vector of length 2, capacity 2 = {59609, 68463}}
