@@ -1,0 +1,14 @@
+Breakpoint 1 at 0x183a8: file /data/home/zkofira/temp-0618/datagrab/./include/query.h, line 286.
+Starting program: /data/home/zkofira/temp-0618/datagrab/Distance_SCAN_SIGMOD --operation query --dataset dblpsmall --algo distancescan -k 16 -u 4 -e 0.35 -d 1.0 -m 1.4
+
+This GDB supports auto-downloading debuginfo from the following URLs:
+  <https://debuginfod.ubuntu.com>
+Debuginfod has been disabled.
+To make this setting permanent, add 'set debuginfod enabled off' to .gdbinit.
+warning: could not find '.gnu_debugaltlink' file for /lib/x86_64-linux-gnu/libboost_serialization.so.1.83.0
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+
+Breakpoint 1, query () at /data/home/zkofira/temp-0618/datagrab/./include/query.h:286
+286	    serialize_clusters(cluster_result);
+$1 = std::vector of length 33, capacity 33 = {std::vector of length 1, capacity 1 = {99063}, std::vector of length 1, capacity 1 = {91983}, std::vector of length 2, capacity 2 = {91039, 17020}, std::vector of length 2, capacity 2 = {32610, 1238}, std::vector of length 1, capacity 1 = {30865}, std::vector of length 2, capacity 2 = {44930, 18186}, std::vector of length 10, capacity 10 = {76308, 80625, 9800, 15506, 49763, 52603, 60152, 62658, 74736, 78692}, std::vector of length 1, capacity 1 = {27149}, std::vector of length 1, capacity 1 = {45622}, std::vector of length 1, capacity 1 = {36814}, std::vector of length 1, capacity 1 = {57317}, std::vector of length 3, capacity 3 = {92618, 97043, 61582}, std::vector of length 2, capacity 2 = {23411, 27244}, std::vector of length 1, capacity 1 = {298}, std::vector of length 2, capacity 2 = {83935, 72881}, std::vector of length 1, capacity 1 = {22929}, std::vector of length 1, capacity 1 = {18695}, std::vector of length 1, capacity 1 = {74201}, std::vector of length 2, capacity 2 = {20470, 66141}, std::vector of length 1, capacity 1 = {41943}, std::vector of length 1, capacity 1 = {407}, std::vector of length 3, capacity 3 = {59609, 61072, 68463}, std::vector of length 1, capacity 1 = {24799}, std::vector of length 2, capacity 2 = {39844, 37319}, std::vector of length 1, capacity 1 = {47277}, std::vector of length 1, capacity 1 = {48228}, std::vector of length 2, capacity 2 = {53715, 55788}, std::vector of length 1, capacity 1 = {48046}, std::vector of length 1, capacity 1 = {51153}, std::vector of length 1, capacity 1 = {57638}, std::vector of length 1, capacity 1 = {58539}, std::vector of length 1, capacity 1 = {63754}, std::vector of length 1, capacity 1 = {64458}}
