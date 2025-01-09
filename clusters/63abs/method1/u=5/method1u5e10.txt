@@ -1,0 +1,14 @@
+Breakpoint 1 at 0x183a8: file /data/home/zkofira/temp-0618/datagrab/./include/query.h, line 286.
+Starting program: /data/home/zkofira/temp-0618/datagrab/Distance_SCAN_SIGMOD --operation query --dataset dblpabs --algo distancescan -k 16 -u 5 -e 0.10 -d 1.0 -m 1.4
+
+This GDB supports auto-downloading debuginfo from the following URLs:
+  <https://debuginfod.ubuntu.com>
+Debuginfod has been disabled.
+To make this setting permanent, add 'set debuginfod enabled off' to .gdbinit.
+warning: could not find '.gnu_debugaltlink' file for /lib/x86_64-linux-gnu/libboost_serialization.so.1.83.0
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+
+Breakpoint 1, query () at /data/home/zkofira/temp-0618/datagrab/./include/query.h:286
+286	    serialize_clusters(cluster_result);
+$1 = std::vector of length 19, capacity 19 = {std::vector of length 1, capacity 1 = {79310}, std::vector of length 1, capacity 1 = {75405}, std::vector of length 1, capacity 1 = {60337}, std::vector of length 1, capacity 1 = {61709}, std::vector of length 2, capacity 2 = {17020, 57761}, std::vector of length 1, capacity 1 = {18822}, std::vector of length 1, capacity 1 = {58732}, std::vector of length 1, capacity 1 = {19835}, std::vector of length 1, capacity 1 = {56911}, std::vector of length 4, capacity 4 = {25501, 28287, 32075, 32410}, std::vector of length 1, capacity 1 = {32610}, std::vector of length 1, capacity 1 = {41347}, std::vector of length 1, capacity 1 = {73738}, std::vector of length 1, capacity 1 = {72752}, std::vector of length 1, capacity 1 = {56280}, std::vector of length 1, capacity 1 = {38648}, std::vector of length 2, capacity 2 = {35276, 23774}, std::vector of length 1, capacity 1 = {44498}, std::vector of length 1, capacity 1 = {46266}}
