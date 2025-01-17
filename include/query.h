@@ -2,6 +2,26 @@
 #define WEIGHTED_SCAN_QUERY_H
 
 #include "algos.h"
+#include <sstream>
+
+std::string saveVectorAsString(std::vector<std::vector<int>>& groups) {
+    // Sort groups by size in descending order
+    std::sort(groups.begin(), groups.end(), [](const std::vector<int>& a, const std::vector<int>& b) {
+        return a.size() > b.size();
+    });    
+    // Build the resulting string 
+    std::string result;
+    for (const auto& group : groups) {
+        for (size_t i = 0; i < group.size(); ++i) {
+            result += std::to_string(group[i]);
+        if (i != group.size() - 1) {
+            result += " ";
+        }
+    }
+    result += "\n";
+    }
+    return result;
+}
 
 void save_clusters(vector<int> cluster_result) {
     string result_path =
@@ -283,8 +303,13 @@ vector<vector<int>> query() {
         set_result(WHOLE);
         dataOutput();
     }
-    serialize_clusters(cluster_result);
-    // save_clusters(cluster_result);
+    //print results to file
+    std::ofstream outputFile("clusters.txt", fstream::app);
+    std::string toPrint = saveVectorAsString(cluster_result);
+    outputFile << toPrint;
+    outputFile.close();
+    //serialize_clusters(cluster_result);
+    //save_clusters(cluster_result);
     return cluster_result;
 }
 
