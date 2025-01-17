@@ -1,7 +1,15 @@
 #include <iostream>
-#include "./include/query.h"
+#include <chrono>
+#include <fstream>
+#include “./include/query.h”
 
 int main(int argc, char *argv[]) {
+    using std::chrono::steady_clock;
+    using std::chrono::duration_cast;
+    using std::chrono::duration;
+    using std::chrono::milliseconds;
+    auto startTime = steady_clock::now();
+
     ios::sync_with_stdio(false);
     program_start(argc, argv);
     Saver::init();
@@ -78,5 +86,11 @@ int main(int argc, char *argv[]) {
         auto args = combine_args(argc, argv);
         Saver::save_json(config, result, args);
     }
+    auto endTime = steady_clock::now();
+    auto ms_int = duration_cast<milliseconds>(endTime - startTime);
+    std::ofstream outputFile("timeRecord.txt", fstream::app);
+    outputFile << ms_int.count() << "ms\n";
+    outputFile.close();
+
     return 0;
 }
