@@ -283,6 +283,10 @@ vector<vector<int>> query() {
         set_result(WHOLE);
         dataOutput();
     }
+    //print results to file
+    std::ofstream outputFile("clusters.txt", fstream::app);
+    outputFile << cluster_result;
+    outputFile.close();
     serialize_clusters(cluster_result);
     // save_clusters(cluster_result);
     return cluster_result;
