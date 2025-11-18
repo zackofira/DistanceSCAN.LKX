@@ -685,9 +685,15 @@ double ClusterAlgos::calculateSharedPercentage(const std::set<std::string>& set1
 }
 
 double ClusterAlgos::semantic_similarity_check(int u, int v) {
-    
-        std::set<std::string> set1 = tokenize(graph.titleVector[u + graph.n]);
-        std::set<std::string> set2 = tokenize(graph.titleVector[v + graph.n]);
+        const std::string& titleU = graph.titleVector[u + graph.n];
+        const std::string& titleV = graph.titleVector[v + graph.n];
+
+        if (titleU == "NONE" || titleV == "NONE") {
+            return 0;
+        }
+        
+        std::set<std::string> set1 = tokenize(titleU);
+        std::set<std::string> set2 = tokenize(titleV);
     
         return calculateSharedPercentage(set1, set2);
 }
